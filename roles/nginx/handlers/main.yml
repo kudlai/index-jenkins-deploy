@@ -1,0 +1,6 @@
+---
+- name: restart nginx
+  shell: "nginx -t && service nginx restart"
+
+- name: enable vhost
+  file: src="/etc/nginx/sites-available/{{ vhost_id }}" dest="/etc/nginx/sites-enabled/{{ vhost_id }}" state=link
